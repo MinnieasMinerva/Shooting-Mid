@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
     public Joystick joyStick;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public string Level2;
+    Rigidbody rb;
 
     private CharacterController controller;
 
@@ -103,6 +106,28 @@ public class Player : MonoBehaviour
 
             // 暫停 0.5 秒
             yield return new WaitForSeconds(0.5f);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        // 當碰撞到 tag 為 Coin 的物件
+        if (other.gameObject.tag == "Coin")
+        {
+            // 刪除物件(設為停用、並移除)
+            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+
+
+            // 判斷是否過關
+            // 先取得目前所有 Tag 為 Coin 的物件陣列
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("Coin");
+
+            // 如果陣列長度為0 （陣列內沒東西）
+            if (objs.Length == 0)
+            {
+                // 切換到下一關
+                SceneManager.LoadScene(1);
+            }
         }
     }
 }
