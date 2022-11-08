@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             if (objs.Length == 0)
             {
                 // 切換到下一關
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(nextScence);
             }
         }
     }
