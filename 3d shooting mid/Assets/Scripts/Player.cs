@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Joystick joyStick;
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public string Level2;
+    public string nextScence;
     Rigidbody rb;
 
     private CharacterController controller;
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             if (objs.Length == 0)
             {
                 // 切換到下一關
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(3);
             }
         }
     }
