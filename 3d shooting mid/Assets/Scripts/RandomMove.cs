@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class RandomMove : MonoBehaviour
 {
-    public float speed = 4;
+    public float speed = 1;
     private float timer = 0;
     private float dir_y = 0;
     // Start is called before the first frame update
